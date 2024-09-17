@@ -1,0 +1,155 @@
+[gd_scene load_steps=16 format=3 uid="uid://by1gd56ejhoj3"]
+
+[ext_resource type="Script" path="res://Cenas/ui.gd" id="1_0qt4q"]
+[ext_resource type="FontFile" uid="uid://dyvy1i5kc2tx3" path="res://Assets Space Invades/andina.ttf" id="1_2k6tp"]
+[ext_resource type="FontFile" uid="uid://ctrhdf7iptxxu" path="res://FontScore/KarmaticArcade-6Yrp1.ttf" id="2_dd7lt"]
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets Space Invades/font/andina.ttf" id="2_wnfg2"]
+[ext_resource type="Texture2D" uid="uid://dm7gb4q2qxmar" path="res://CustomAssets/AssetsNovos/SuperLaser/Pt1.PNG" id="3_10e6r"]
+[ext_resource type="Texture2D" uid="uid://ynr3ao3o7pio" path="res://CustomAssets/AssetsNovos/SuperLaser/Pt2.PNG" id="4_mcim0"]
+[ext_resource type="Texture2D" uid="uid://60dpuirj0nkd" path="res://CustomAssets/AssetsNovos/SuperLaser/Pt3.PNG" id="5_qtj3d"]
+[ext_resource type="AudioStream" uid="uid://beb1vf0qp4f6" path="res://Sound/game_over.wav" id="6_0el7v"]
+[ext_resource type="Texture2D" uid="uid://b1f0b3xwq6n1w" path="res://CustomAssets/AssetsNovos/SuperLaser/Pt4.PNG" id="6_rtf1y"]
+[ext_resource type="AudioStream" uid="uid://dlrpslptdup1m" path="res://Sound/MainSoundTrack.wav" id="7_5gktt"]
+[ext_resource type="Texture2D" uid="uid://6mbt6h3446gc" path="res://CustomAssets/AssetsNovos/SuperLaser/Pt5.PNG" id="7_smhu7"]
+[ext_resource type="Texture2D" uid="uid://dnhnbbr8iffnl" path="res://CustomAssets/AssetsNovos/Fundo/Transparencia70.PNG" id="8_d8bjm"]
+
+[sub_resource type="Animation" id="Animation_bstsy"]
+resource_name = "countdown"
+length = 11.991
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.2, 5, 7.2, 9.991, 10.5, 11, 11.5, 11.991),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_10e6r"), ExtResource("4_mcim0"), ExtResource("5_qtj3d"), ExtResource("6_rtf1y"), ExtResource("7_smhu7"), ExtResource("6_rtf1y"), ExtResource("5_qtj3d"), ExtResource("4_mcim0"), ExtResource("3_10e6r")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jfrw1"]
+_data = {
+"countdown": SubResource("Animation_bstsy")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2sev"]
+bg_color = Color(0.839323, 0.513431, 0.0991993, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_0qt4q")
+
+[node name="pontos" type="Label" parent="."]
+offset_left = -87.0
+offset_top = -78.0
+offset_right = 360.0
+offset_bottom = 116.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dd7lt")
+theme_override_font_sizes/font_size = 25
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="pontos2" type="Label" parent="."]
+offset_left = -87.0
+offset_top = -63.0
+offset_right = 360.0
+offset_bottom = 124.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dd7lt")
+theme_override_font_sizes/font_size = 25
+text = "."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PointsLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_dd7lt")
+theme_override_font_sizes/font_size = 25
+text = "SCORE = 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PowerUp" type="Node2D" parent="MarginContainer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/PowerUp"]
+texture_filter = 1
+position = Vector2(899, 33)
+scale = Vector2(4, 4)
+texture = ExtResource("3_10e6r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/PowerUp"]
+libraries = {
+"": SubResource("AnimationLibrary_jfrw1")
+}
+
+[node name="LifesContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="GameOverContainer" type="CenterContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/GameOverContainer"]
+layout_mode = 2
+
+[node name="GameOver" type="Sprite2D" parent="MarginContainer/GameOverContainer/VBoxContainer"]
+unique_name_in_owner = true
+position = Vector2(186, 54)
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("8_d8bjm")
+
+[node name="GameOverLabel" type="Label" parent="MarginContainer/GameOverContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 0.811765, 0.364706, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("1_2k6tp")
+theme_override_font_sizes/font_size = 60
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverButton" type="Button" parent="MarginContainer/GameOverContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wnfg2")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_g2sev")
+text = "RESTART"
+
+[node name="gameOverSound" type="AudioStreamPlayer" parent="MarginContainer/GameOverContainer/VBoxContainer"]
+unique_name_in_owner = true
+stream = ExtResource("6_0el7v")
+
+[node name="trilha_sonora" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5gktt")
+volume_db = -15.0
+
+[connection signal="pressed" from="MarginContainer/GameOverContainer/VBoxContainer/GameOverButton" to="." method="_on_game_over_button_pressed"]

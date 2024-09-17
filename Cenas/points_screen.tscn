@@ -1,0 +1,139 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1nfgm8dqas6w"]
+
+[ext_resource type="Texture2D" uid="uid://cu4hw0y30hqvb" path="res://CustomAssets/AssetsNovos/Fundo/FundoOficialEscuro.PNG" id="1_efn3r"]
+[ext_resource type="Script" path="res://Cenas/points_screen.gd" id="1_i0tj5"]
+[ext_resource type="Texture2D" uid="uid://dnhnbbr8iffnl" path="res://CustomAssets/AssetsNovos/Fundo/Transparencia70.PNG" id="2_1i3cv"]
+[ext_resource type="FontFile" uid="uid://ctrhdf7iptxxu" path="res://FontScore/KarmaticArcade-6Yrp1.ttf" id="3_hya78"]
+[ext_resource type="Texture2D" uid="uid://bbh8tvhq7xdhc" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo21.PNG" id="4_8pwuo"]
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets Space Invades/font/andina.ttf" id="5_i104s"]
+[ext_resource type="Texture2D" uid="uid://0g0bow1kpw46" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo31.PNG" id="6_l1g7q"]
+[ext_resource type="FontFile" uid="uid://dyvy1i5kc2tx3" path="res://Assets Space Invades/andina.ttf" id="7_fvft2"]
+[ext_resource type="Texture2D" uid="uid://cpwwxje3no7wr" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo11.PNG" id="8_65dwa"]
+[ext_resource type="AudioStream" uid="uid://dtnmicr7okynd" path="res://Sound/TrilhaSonoraPoints.wav" id="10_3ls0s"]
+
+[node name="PointsScreen" type="CanvasLayer"]
+script = ExtResource("1_i0tj5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_efn3r")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1i3cv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_hya78")
+theme_override_font_sizes/font_size = 60
+text = "Points ."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="InvaderContainer1" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect1" type="TextureRect" parent="MarginContainer/VBoxContainer2/VBoxContainer/InvaderContainer1"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_8pwuo")
+
+[node name="Label1" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/InvaderContainer1"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_i104s")
+theme_override_font_sizes/font_size = 40
+text = "= 10 POINTS"
+
+[node name="InvaderContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer2/VBoxContainer/InvaderContainer2"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("6_l1g7q")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/InvaderContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_fvft2")
+theme_override_font_sizes/font_size = 40
+text = "= 20 POINTS"
+
+[node name="InvaderContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer2/VBoxContainer/InvaderContainer3"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+texture = ExtResource("8_65dwa")
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/InvaderContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_i104s")
+theme_override_font_sizes/font_size = 40
+text = "= 40 POINTS"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 7.53
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 708.0
+offset_top = 116.0
+offset_right = 748.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("3_hya78")
+theme_override_font_sizes/font_size = 60
+text = "."
+
+[node name="SoundTrack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_3ls0s")
+volume_db = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_show_next_control"]
+[connection signal="timeout" from="Timer2" to="." method="_load_game"]

@@ -1,0 +1,129 @@
+[gd_scene load_steps=30 format=3 uid="uid://oft4yox3pqcm"]
+
+[ext_resource type="Script" path="res://Cenas/invader.gd" id="1_wpjdl"]
+[ext_resource type="Texture2D" uid="uid://dv2xqpeck83f4" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo14.PNG" id="2_em6d3"]
+[ext_resource type="Texture2D" uid="uid://bmfrl3kby18rx" path="res://CustomAssets/AssetsNovos/Explosão/Azul1.PNG" id="2_hpw0c"]
+[ext_resource type="Texture2D" uid="uid://dfjm8lkqowyws" path="res://CustomAssets/AssetsNovos/Explosão/Azul5.PNG" id="3_n60hw"]
+[ext_resource type="Texture2D" uid="uid://fcl7cesr8qxg" path="res://CustomAssets/AssetsNovos/Explosão/Azul4.PNG" id="4_r0jmv"]
+[ext_resource type="Texture2D" uid="uid://cnnfr0ovygcd1" path="res://Assets Space Invades/Invaders/Invader3-2.png" id="5_nc1ov"]
+[ext_resource type="Texture2D" uid="uid://dhqqobq57bi2x" path="res://CustomAssets/AssetsNovos/Explosão/Azul3.PNG" id="5_rfgox"]
+[ext_resource type="Texture2D" uid="uid://bqwgubg811rnd" path="res://CustomAssets/AssetsNovos/Explosão/Azul2.PNG" id="6_jayjd"]
+[ext_resource type="Texture2D" uid="uid://cpwwxje3no7wr" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo11.PNG" id="8_mjwsw"]
+[ext_resource type="Texture2D" uid="uid://whgda26hju77" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo12.PNG" id="9_rj0kb"]
+[ext_resource type="Texture2D" uid="uid://bb27yfrajfnan" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo13.PNG" id="10_ni1ur"]
+[ext_resource type="Texture2D" uid="uid://m413g2lk6p65" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo15.PNG" id="11_qdcpc"]
+[ext_resource type="Texture2D" uid="uid://cbyu11jeiev7q" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo16.PNG" id="12_umhlr"]
+[ext_resource type="Texture2D" uid="uid://0g0bow1kpw46" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo31.PNG" id="14_k2rk0"]
+[ext_resource type="Texture2D" uid="uid://vhaqbk8proxj" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo32.PNG" id="15_7na5v"]
+[ext_resource type="Texture2D" uid="uid://djejn5ot8dnx4" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo33.PNG" id="16_3ahex"]
+[ext_resource type="AudioStream" uid="uid://dr1o3ioowmkb8" path="res://Sound/InvaderKil.wav" id="17_k4wwc"]
+[ext_resource type="Texture2D" uid="uid://bobg851cd7ku8" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo34.PNG" id="17_suolj"]
+[ext_resource type="Texture2D" uid="uid://bxl8ejfsym3eb" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo35.PNG" id="18_bfouj"]
+[ext_resource type="Texture2D" uid="uid://bbh8tvhq7xdhc" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo21.PNG" id="19_2tk7d"]
+[ext_resource type="Texture2D" uid="uid://k220p8quiq74" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo22.PNG" id="20_q4dne"]
+[ext_resource type="Texture2D" uid="uid://dbbmwm5mrux0u" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo23.PNG" id="21_dqsc7"]
+[ext_resource type="Texture2D" uid="uid://pw5cgvgjw2k0" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo24.PNG" id="22_t03qq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ni5hb"]
+radius = 4.0
+
+[sub_resource type="Animation" id="Animation_mvq68"]
+resource_name = "destroy"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_n60hw"), ExtResource("4_r0jmv"), ExtResource("5_rfgox"), ExtResource("6_jayjd"), ExtResource("2_hpw0c")]
+}
+
+[sub_resource type="Animation" id="Animation_aalop"]
+resource_name = "move_1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_mjwsw"), ExtResource("9_rj0kb"), ExtResource("10_ni1ur"), ExtResource("2_em6d3"), ExtResource("11_qdcpc"), ExtResource("12_umhlr")]
+}
+
+[sub_resource type="Animation" id="Animation_oi0e7"]
+resource_name = "move_2"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_k2rk0"), ExtResource("15_7na5v"), ExtResource("16_3ahex"), ExtResource("17_suolj"), ExtResource("18_bfouj")]
+}
+
+[sub_resource type="Animation" id="Animation_ogdbn"]
+resource_name = "move_3"
+length = 0.45
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.35, 0.45),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("19_2tk7d"), ExtResource("20_q4dne"), ExtResource("21_dqsc7"), ExtResource("22_t03qq")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61fa4"]
+_data = {
+"destroy": SubResource("Animation_mvq68"),
+"move_1": SubResource("Animation_aalop"),
+"move_2": SubResource("Animation_oi0e7"),
+"move_3": SubResource("Animation_ogdbn")
+}
+
+[node name="Invader" type="Area2D"]
+scale = Vector2(4, 4)
+collision_layer = 4
+collision_mask = 162
+script = ExtResource("1_wpjdl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("5_nc1ov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 34
+shape = SubResource("CircleShape2D_ni5hb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_61fa4")
+}
+
+[node name="soundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_k4wwc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

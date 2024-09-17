@@ -1,0 +1,86 @@
+[gd_scene load_steps=26 format=3 uid="uid://bci0x1psddk78"]
+
+[ext_resource type="Script" path="res://Cenas/player.gd" id="1_8as8d"]
+[ext_resource type="Texture2D" uid="uid://cm8sug5l6a6rd" path="res://CustomAssets/AssetsNovos/Player/PlayerRecolorido.PNG" id="2_muttd"]
+[ext_resource type="Script" path="res://Cenas/Shooting.gd" id="3_6vkt7"]
+[ext_resource type="AudioStream" uid="uid://17r0njnvrxhj" path="res://Sound/SuperLaser.wav" id="4_e4kcr"]
+[ext_resource type="AudioStream" uid="uid://v4v4sxtk6o4l" path="res://Sound/shoot.wav" id="4_knark"]
+[ext_resource type="Texture2D" uid="uid://3h8ifqnvt5hq" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco0.PNG" id="5_ahpan"]
+[ext_resource type="Texture2D" uid="uid://dw6gdcjjjiwgt" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco1.PNG" id="6_q7oa8"]
+[ext_resource type="Texture2D" uid="uid://dwbmxc17cthy4" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco2.PNG" id="7_j1h0t"]
+[ext_resource type="Texture2D" uid="uid://dqp0v0npe3g6m" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco3.PNG" id="8_nq76j"]
+[ext_resource type="Texture2D" uid="uid://dt7log3hf14rk" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco4.PNG" id="9_nd521"]
+[ext_resource type="Texture2D" uid="uid://bciqldxs7f7de" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco5.PNG" id="10_7x6i5"]
+[ext_resource type="Texture2D" uid="uid://rn5d6wyv0haw" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco6.PNG" id="11_7qitn"]
+[ext_resource type="Texture2D" uid="uid://c1wb4b16ullu7" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco7.PNG" id="12_iga5q"]
+[ext_resource type="Texture2D" uid="uid://dv68iudje6b17" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco8.PNG" id="13_e0sef"]
+[ext_resource type="Texture2D" uid="uid://cxt47mpqump7r" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco9.PNG" id="14_103xo"]
+[ext_resource type="Texture2D" uid="uid://bm5heps8kcfqd" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco10.PNG" id="15_a5tpe"]
+[ext_resource type="Texture2D" uid="uid://bnssokxtmnfhk" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco11.PNG" id="16_ltmko"]
+[ext_resource type="Texture2D" uid="uid://dxhduon5ldnbe" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco12.PNG" id="17_ducgd"]
+[ext_resource type="Texture2D" uid="uid://c0yocfkobfnxi" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco13.PNG" id="18_yqrgb"]
+[ext_resource type="Texture2D" uid="uid://b0lv8f04y1d83" path="res://CustomAssets/AssetsNovos/Player/PNGTransparente.PNG" id="19_a3gp0"]
+[ext_resource type="Texture2D" uid="uid://bfq5mwcf84max" path="res://CustomAssets/AssetsNovos/PapocoPlayer/Papoco14.PNG" id="19_gja1l"]
+[ext_resource type="AudioStream" uid="uid://bbc4brcv8wn5v" path="res://Sound/Papoco1.wav" id="22_h770h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mplqe"]
+size = Vector2(51, 45)
+
+[sub_resource type="Animation" id="Animation_qa20o"]
+resource_name = "destroy"
+length = 1.55
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_ahpan"), ExtResource("6_q7oa8"), ExtResource("7_j1h0t"), ExtResource("8_nq76j"), ExtResource("9_nd521"), ExtResource("10_7x6i5"), ExtResource("11_7qitn"), ExtResource("12_iga5q"), ExtResource("13_e0sef"), ExtResource("14_103xo"), ExtResource("15_a5tpe"), ExtResource("16_ltmko"), ExtResource("17_ducgd"), ExtResource("18_yqrgb"), ExtResource("19_gja1l"), ExtResource("19_a3gp0")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bksfm"]
+_data = {
+"destroy": SubResource("Animation_qa20o")
+}
+
+[node name="Player" type="Area2D"]
+collision_mask = 12
+script = ExtResource("1_8as8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3.2, 3.2)
+texture = ExtResource("2_muttd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mplqe")
+
+[node name="Shooting" type="Node2D" parent="."]
+script = ExtResource("3_6vkt7")
+
+[node name="countdown" type="Timer" parent="Shooting"]
+
+[node name="super_shot_timer" type="Timer" parent="Shooting"]
+
+[node name="soundSuperShoot" type="AudioStreamPlayer2D" parent="Shooting"]
+stream = ExtResource("4_e4kcr")
+
+[node name="soundShoot" type="AudioStreamPlayer2D" parent="Shooting"]
+stream = ExtResource("4_knark")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bksfm")
+}
+
+[node name="SoundPlayerDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_h770h")
+
+[connection signal="timeout" from="Shooting/countdown" to="Shooting" method="_on_countdown_timeout"]
+[connection signal="timeout" from="Shooting/super_shot_timer" to="Shooting" method="_on_super_shot_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

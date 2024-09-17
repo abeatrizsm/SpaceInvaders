@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxjjclmg2y4m1"]
+
+[ext_resource type="FontFile" uid="uid://ch103gi2tob72" path="res://Assets Space Invades/font/andina.ttf" id="1_cy18b"]
+[ext_resource type="Script" path="res://Cenas/start_screen.gd" id="1_lrncb"]
+[ext_resource type="Texture2D" uid="uid://duym50anksssa" path="res://CustomAssets/AssetsNovos/Fundo/FundoOficialMedio.PNG" id="2_67l1h"]
+[ext_resource type="Texture2D" uid="uid://dnhnbbr8iffnl" path="res://CustomAssets/AssetsNovos/Fundo/Transparencia70.PNG" id="3_2adut"]
+[ext_resource type="Texture2D" uid="uid://dff1w26gfte1u" path="res://CustomAssets/AssetsNovos/Fundo/Arcade Gamer.png" id="3_yynch"]
+[ext_resource type="Texture2D" uid="uid://cqkprjv21opmp" path="res://CustomAssets/AssetsNovos/Fundo/Transparencia50.PNG" id="4_lud28"]
+[ext_resource type="Texture2D" uid="uid://bdujrg2ysuwlk" path="res://CustomAssets/AssetsNovos/Fundo/botão.PNG" id="4_s16x4"]
+[ext_resource type="AudioStream" uid="uid://boduxd7tus78c" path="res://Sound/StartSoundTrack.wav" id="8_fisal"]
+
+[node name="Start_Screen" type="CanvasLayer"]
+script = ExtResource("1_lrncb")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 36.0
+offset_right = 7.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+texture = ExtResource("2_67l1h")
+expand_mode = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(574, 227.375)
+scale = Vector2(0.646875, 0.253472)
+texture = ExtResource("3_2adut")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(575, 324.188)
+scale = Vector2(1.79375, 1.78229)
+texture = ExtResource("4_lud28")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(596, 323)
+scale = Vector2(0.554167, 0.595949)
+texture = ExtResource("3_yynch")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(563, 492)
+scale = Vector2(4.38021, 3.95454)
+texture = ExtResource("4_s16x4")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 70)
+offset_left = 473.0
+offset_top = 462.0
+offset_right = 656.0
+offset_bottom = 532.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.882353, 0.333333, 0.266667, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_cy18b")
+theme_override_font_sizes/font_size = 45
+text = "START"
+flat = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fisal")
+
+[connection signal="pressed" from="Button" to="." method="_load_game"]

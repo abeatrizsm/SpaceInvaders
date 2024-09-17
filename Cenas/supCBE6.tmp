@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt4a2gmg6f4yp"]
+
+[ext_resource type="Texture2D" uid="uid://365aimdu57w8" path="res://CustomAssets/AssetsNovos/SuperLaser/SuperTiro.PNG" id="2_n7lqv"]
+
+[sub_resource type="GDScript" id="GDScript_6epel"]
+script/source = "extends Area2D
+
+class_name SuperLaser
+
+@export var speed = 900
+
+func _process(delta):
+	position.y -= speed*delta
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf2nk"]
+size = Vector2(6, 48)
+
+[node name="SuperLaser" type="Area2D"]
+collision_layer = 128
+collision_mask = 12
+script = SubResource("GDScript_6epel")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_n7lqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rf2nk")

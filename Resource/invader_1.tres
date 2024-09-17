@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://besywkxvnlww5"]
+
+[ext_resource type="Script" path="res://Resource/Invader_config.gd" id="1_rl1bk"]
+[ext_resource type="Texture2D" uid="uid://cpwwxje3no7wr" path="res://CustomAssets/AssetsNovos/Inimigos/Inimigo11.PNG" id="2_vj1ct"]
+
+[resource]
+script = ExtResource("1_rl1bk")
+sprite = ExtResource("2_vj1ct")
+width = 10
+animation_name = "move_1"
+points = 40
